@@ -1,0 +1,55 @@
+#logo {
+	font-size: 1em;
+}
+
+.card-content {
+	width: 110%;
+}
+
+.artist-card {
+	text-align: center;
+}
+
+.card-action {
+	color: black;
+	min-width: 80%;
+}
+
+.cover {
+	margin-right: 5px;
+}
+
+select {
+	 display: block;
+     position: absolute; 
+     width: 200px; 
+     height: 30px; 
+     top: 0; 
+}
+
+h3 {
+	margin-top: 2em;
+}
+
+.card-action a {
+	width: 100%;
+	font-size: 0.8em;
+}
+
+.favorites {
+	text-align: right;
+}
+
+.title {
+	font-weight: bold;
+	border: solid 1px grey;
+}
+
+.list {
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+.picture {
+	margin-top: 1em;
+}

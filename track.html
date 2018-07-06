@@ -1,0 +1,57 @@
+<!-- Pour un fonctionnement optimal, merci d'installer l'extention cross-origin ressource sharing -->
+
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Deez'Web</title>
+    <!-- Inclusion des Google Fonts + le framework CSS Materialize.css -->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div id="app" >
+      <nav class="nav-wrapper blue darken-4">
+        <a href="index.html" class="brand-logo valign-wrapper"><h1 id="logo">Deez'Web</h1></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="index.html">Recherche</a></li>
+          <li><a href="favoris.html">Mes Favoris</a></li>
+        </ul>
+      </nav>
+      <div class="row container">
+        <div class="search">
+            <div id="track" v-if="track" class="grid-example col s12 black-text">
+              <div >
+                <h1>Titre : {{ track.title }}</h1>
+                <div >
+                  <p class="col s6"><img :src="track.album.cover_small">&nbsp;
+Albums :  <a :href="'album.html?id='  + track.album.id">{{ track.album.title }}</a></p>
+                  <p class="col s6">Durée : {{track.duration | minutes}} / Date de parution : {{ track.release_date }}</p>
+                  <p class="col s6 cover"><img :src="track.artist.picture_small">&nbsp;
+Artiste : <a :href="'artiste.html?id='  + track.artist.id">{{track.artist.name}}</a></p>
+                  <button class="waves-effect waves-light btn blue darken-4" ><a :href="track.link">Voir le titre sur deezer</a></button>
+                  <p class="col s6 ">Ecouter un extrait :
+                    <audio controls>
+                    <source :src="track.preview" type="audio/mpeg"></audio>
+                  </p>
+                </div>
+                <div class="col s6">
+                 <button @click.prevent="favorites" class="waves-effect waves-light btn blue darken-4" >Ajouter aux favoris</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Inclusion des scripts nécessaires au fonctionnement de Materialize (inclus jQuery) -->
+      <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
+      <script src="node_modules/jquery/dist/jquery.js"></script>
+      <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+      <script src="node_modules/vue/dist/vue.js"></script>
+      <script src="scripts/track.js"></script>
+      
+    </body>
+  </html>

@@ -1,0 +1,59 @@
+<!-- Pour un fonctionnement optimal, merci d'installer l'extention cross-origin ressource sharing -->
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Deez'Web</title>
+
+    <!-- Inclusion des Google Fonts + le framework CSS Materialize.css -->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <div id="app" >
+
+        <nav class="nav-wrapper blue darken-4">
+            <a href="index.html" class="brand-logo valign-wrapper"><h1 id="logo">Deez'Web</h1></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li ><a href="index.html">Recherche</a></li>
+                <li class="active"><a href="favoris.html">Mes Favoris</a></li>
+
+            </ul>
+        </nav>
+    <div class="row container">
+                    <h2> Mes favoris</h2>
+
+           <main id="deezer-app">
+            <div id="favorites" v-if="favorites.length" class="col s4 card">
+        <ul>
+                <li v-for="favorite in favorites" class="item">
+                <i @click="removeFavorite(favorite)">Retirer des favoris</i>
+                
+                <p class="title" > <a :href="'track.html?id='  + favorite.id"       > {{ favorite.title }}       </a> </p>
+                <p class="artist"> <a :href="'artist.html?id=' + favorite.artist.id"> {{ favorite.artist.name }} </a> </p>
+                <p class="album" > <a :href="'album.html?id='  + favorite.album.id" > {{ favorite.album.title }} </a> </p>
+                
+            </li>
+        </ul>
+    </div>
+ </main>
+</div>
+    </div>
+
+    <!-- Inclusion des scripts nécessaires au fonctionnement de Materialize (inclus jQuery) -->
+    <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="scripts/favoris.js"></script>
+    
+
+
+</body>
+</html>
